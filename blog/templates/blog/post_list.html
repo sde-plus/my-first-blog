@@ -1,61 +1,20 @@
 <!DOCTYPE HTML>
-{% load staticfiles %}
-<html lang="ru">
+<html>
     <head>
-        <meta charset="utf-8">
-        <title>My fist site layout</title>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <title>Django Girls blog</title>
     </head>
     <body>
-        <div class="top-bar">
-            <ul>
-                <li><a href="/sing_up/">Sing Up</a> |</li>
-                <li><a href="/login/">Login</a> |</li>
-                <li><a href="/rss/">RSS Feeds</a> |</li>
-                <li><a href="/arch_news/">Archived News</a></li>
-            </ul>
-            <div class="top-bar__social">
-                <ul>
-                    <li><a href="https://www.linkedin.com" class="linkedin"></a></li>
-                    <li><a href="https://twitter.com" class="twitter"></a></li>
-                    <li><a href="https://ru.pinterest.com/" class="pinterest"></a></li>
-                    <li><a href="https://plus.google.com/?hl=ru" class="google-plus"></a></li>
-                    <li><a href="http://www.pravda.com.ua/" class="rss"></a></li>
-                </ul>
-            </div>
+        <div>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </div>
         
-        <div class="header">
-                <ul>
-                    <li>HOMEPAGE</li>
-                    <li><a href="../src/style_demo.html">STYLE DEMO</a></li>
-                    <li><a href="/full_width/">FULL WIDTH</a></li>
-                    <li><a href="/dropdown/">DROPDOWN</a></li>
-                    <li><a href="/gallery/">GALLERY</a></li>
-                    <li><a href="/portfolio/">PORTFOLIO</a></li>
-                    <li><a href="/link_text/">LINK TEXT</a></li>
-                    <li><a href="/long_link_text/">LONG LINK TEXT</a> </li>
-                </ul>
-            
-            <div class="bottom-border">
-                
+            {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
             </div>
-            <div class="active_bottom_border">
-                
-            </div>
-            
-            <div class="logo">NobodysFool</div>
-            <form action="" method="post" class="search">
-                <input type="search" name="q" placeholder="Search Our Website..." class="input">
-                <input type="submit" value="SEARCH" class="submitt">
-            </form>
-            <p>Free PSD Website Template</p>
-            <div class="body-top-border"></div>
-            <div class="body"></div>
-            <div class="title">Your title can be long<br>and descriptive</div>
-            <div class="description">Cursuspenatisaccum ut curabitur nulla tellus tor ames a in curabitur pede. Idet mollisi eros dis orci congue elis et curabitur.</div>
-            <div class="rectangle"></div>
-            <div class="body-bottom-border"></div>
-        </div>        
+            {% endfor %}
+        
     </body>
 </html>
